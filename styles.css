@@ -1,0 +1,128 @@
+/* Custom Styles */
+:root {
+    --primary: #8b5cf6;
+    --secondary: #3b82f6;
+    --dark: #1f2937;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Navigation */
+.nav-link {
+    @apply text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors;
+}
+
+/* Buttons */
+.btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold 
+           hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 inline-flex items-center;
+}
+
+.btn-secondary {
+    @apply px-6 py-3 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-white rounded-lg font-semibold 
+           hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-300 inline-flex items-center;
+}
+
+/* Cards */
+.glass-card {
+    @apply bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 
+           shadow-lg hover:shadow-xl transition-all duration-300;
+}
+
+.skill-card {
+    @apply glass-card p-6 hover:transform hover:-translate-y-2;
+}
+
+.project-card {
+    @apply glass-card p-6 hover:transform hover:-translate-y-2 hover:shadow-2xl;
+}
+
+.stat-card {
+    @apply glass-card p-4 text-center min-w-[100px];
+}
+
+/* Badges */
+.skill-badge {
+    @apply px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 
+           rounded-full text-sm font-medium;
+}
+
+.tech-badge {
+    @apply px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 
+           rounded text-xs font-medium;
+}
+
+/* Project Elements */
+.project-icon {
+    @apply text-4xl mb-4;
+}
+
+.project-link {
+    @apply text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 
+           font-medium text-sm transition-colors;
+}
+
+/* Social Links */
+.social-link {
+    @apply text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 
+           transition-colors transform hover:scale-110;
+}
+
+/* Form */
+.form-input {
+    @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+           bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+           focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all;
+}
+
+/* Section Title */
+.section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800 dark:text-white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dark Mode Transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

@@ -1,0 +1,85 @@
+/* ============================================================
+   PROJECTS — SpaceX Style
+   ============================================================ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  position: relative;
+  padding: 32px 28px;
+  background: var(--canvas-night);
+  border: 1px solid var(--hairline-dark);
+  border-radius: var(--r-sm);
+  transition: all var(--ease);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.project-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--delay);
+}
+.project-card:hover {
+  border-color: var(--on-primary);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.project-icon { font-size: 2rem; }
+.project-links { display: flex; gap: 10px; }
+.project-link {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--ink-mute);
+  border: 1px solid var(--hairline-dark);
+  transition: all var(--ease);
+}
+.project-link:hover {
+  color: var(--on-primary);
+  border-color: var(--on-primary);
+}
+.project-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.project-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  letter-spacing: 0.32px;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.project-tags span {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  padding: 4px 12px;
+  background: transparent;
+  color: var(--ink-mute);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hairline-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}

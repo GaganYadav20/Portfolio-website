@@ -1,0 +1,425 @@
+/* ============================================================
+   HERO — Full-viewport SpaceX cinematic
+   ============================================================ */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Star field */
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 120px 40px 80px;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 640px;
+}
+
+/* Typed greeting */
+.hero-greeting {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink-mute);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+.typing-prefix {
+  color: var(--on-primary);
+  font-weight: 600;
+}
+
+.typed-text {
+  color: var(--text-dim, #8a8a8f);
+}
+
+.cursor-blink {
+  animation: blink .8s step-end infinite;
+  color: var(--on-primary);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Name — massive uppercase */
+.hero-name {
+  margin-bottom: 16px;
+  color: var(--on-primary);
+}
+
+.hero-name-white {
+  color: var(--on-primary);
+}
+
+/* Title - uppercase eyebrow */
+.hero-title {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 24px;
+}
+
+.hero-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 520px;
+  letter-spacing: 0.32px;
+}
+
+/* Single ghost pill CTA */
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+/* Stats */
+.hero-stats {
+  display: flex;
+  gap: 48px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: inline;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--on-primary);
+  letter-spacing: 1px;
+}
+
+.stat-plus {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--on-primary);
+  margin-left: 2px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 11px;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+/* Hero Visual — Orbit system */
+.hero-visual {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.orbit-system {
+  position: relative;
+  width: 460px;
+  height: 460px;
+}
+
+.orbit-core {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px; height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--canvas-night);
+  border: 2px solid var(--hairline-dark);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  animation: pulse-core 4s ease-in-out infinite;
+  overflow: hidden;
+  z-index: 5;
+}
+@keyframes pulse-core {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); }
+  50% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 35px rgba(255, 255, 255, 0.28); border-color: var(--on-primary); }
+}
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(100%) contrast(115%);
+  transition: filter var(--ease), transform var(--ease);
+}
+.orbit-core:hover .profile-pic {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.08);
+}
+
+/* Orbits */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-1 {
+  width: 240px;
+  height: 240px;
+  animation: spin 12s linear infinite;
+}
+
+.orbit-2 {
+  width: 330px;
+  height: 330px;
+  animation: spin 18s linear infinite reverse;
+}
+
+.orbit-3 {
+  width: 420px;
+  height: 420px;
+  animation: spin 25s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.orbit-dot {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--on-primary);
+  box-shadow: 0 0 10px rgba(255, 255, 255, .5);
+}
+
+/* Floating tags */
+.floating-tag {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .1);
+  color: var(--text-dim);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: float-tag 6s ease-in-out infinite;
+}
+
+.tag-1 {
+  top: 5%;
+  left: 10%;
+}
+
+.tag-2 {
+  top: 15%;
+  right: 0%;
+}
+
+.tag-3 {
+  top: 50%;
+  left: -5%;
+}
+
+.tag-4 {
+  bottom: 15%;
+  right: -2%;
+}
+
+.tag-5 {
+  bottom: 5%;
+  left: 12%;
+}
+
+.tag-6 {
+  top: 40%;
+  right: -8%;
+}
+
+@keyframes float-tag {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-mute);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: float-scroll 2s ease-in-out infinite;
+}
+
+@keyframes float-scroll {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+.scroll-mouse {
+  width: 22px;
+  height: 36px;
+  border: 1.5px solid var(--ink-mute);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.scroll-wheel {
+  width: 2px;
+  height: 8px;
+  background: var(--on-primary);
+  border-radius: 2px;
+  animation: scroll-anim 1.5s ease-in-out infinite;
+}
+
+@keyframes scroll-anim {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-inner {
+    flex-direction: column;
+    padding: 120px 24px 80px;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-description {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-greeting {
+    justify-content: center;
+  }
+
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .orbit-system {
+    width: 340px;
+    height: 340px;
+  }
+
+  .orbit-core {
+    width: 175px;
+    height: 175px;
+  }
+
+  .orbit-1 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .orbit-2 {
+    width: 245px;
+    height: 245px;
+  }
+
+  .orbit-3 {
+    width: 310px;
+    height: 310px;
+  }
+}

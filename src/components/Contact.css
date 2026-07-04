@@ -1,0 +1,142 @@
+/* ============================================================
+   CONTACT — SpaceX Style
+   ============================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Info */
+.contact-info {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.contact-info.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+.contact-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.contact-highlight { color: var(--on-primary); }
+.contact-info p {
+  color: var(--text-dim);
+  margin-bottom: 32px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--canvas-night);
+  border: 1px solid var(--hairline-dark);
+  border-radius: var(--r-sm);
+  transition: all var(--ease);
+}
+.contact-method:hover {
+  border-color: var(--hairline-hover);
+  transform: translateX(6px);
+}
+.contact-method-icon { font-size: 1.4rem; }
+.contact-method-label {
+  display: block;
+  font-size: 10px;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.contact-method-value {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-primary);
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 36px;
+  background: var(--canvas-night);
+  border: 1px solid var(--hairline-dark);
+  border-radius: var(--r-sm);
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity .8s ease, transform .8s ease;
+  transition-delay: .2s;
+}
+.contact-form.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.form-group {
+  position: relative;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 0 10px;
+  font-size: 14px;
+  color: var(--on-primary);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--hairline-dark);
+  outline: none;
+  transition: border-color var(--ease);
+  letter-spacing: 0.32px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--on-primary);
+}
+.form-group label {
+  position: absolute;
+  top: 14px; left: 0;
+  font-size: 11px;
+  color: var(--ink-mute);
+  pointer-events: none;
+  transition: all var(--ease);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 10px;
+  color: var(--on-primary);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.btn-ghost.sent {
+  border-color: var(--on-primary);
+  background: var(--on-primary);
+  color: var(--canvas-night);
+}
+
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}

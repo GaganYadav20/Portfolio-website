@@ -1,0 +1,256 @@
+/* ============================================================
+   SpaceX-Inspired Design System — Portfolio
+   Pure black canvas · White D-DIN typography · Ghost pill CTAs
+   ============================================================ */
+
+/* ---------- @font-face: D-DIN Approximation via Inter ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* Surfaces */
+  --canvas-night:      #000000;
+  --canvas-night-soft: #0a0a0a;
+  --canvas-light:      #ffffff;
+  --canvas-cool:       #f0f0fa;
+
+  /* Text */
+  --on-primary:        #ffffff;
+  --on-primary-mute:   #f0f0fa;
+  --ink:               #000000;
+  --ink-mute:          #5a5a5f;
+  --text-dim:          #8a8a8f;
+
+  /* Borders */
+  --hairline-dark:     #3a3a3f;
+  --hairline-light:    #e0e0e8;
+  --hairline-hover:    #6a6a6f;
+
+  /* Typography */
+  --font-display: 'Inter', 'Arial Narrow', Arial, Verdana, sans-serif;
+  --font-body:    'Inter', Arial, Verdana, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --sp-xxs: 4px;
+  --sp-xs:  8px;
+  --sp-sm:  12px;
+  --sp-md:  16px;
+  --sp-lg:  18px;
+  --sp-xl:  24px;
+  --sp-xxl: 32px;
+  --sp-huge: 48px;
+
+  /* Radius */
+  --r-xs:   4px;
+  --r-sm:   8px;
+  --r-md:   16px;
+  --r-pill: 32px;
+  --r-full: 9999px;
+
+  /* Transition */
+  --ease: .35s cubic-bezier(.4,0,.2,1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--font-body);
+  background: var(--canvas-night);
+  color: var(--on-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+input, textarea { font-family: inherit; color: inherit; }
+
+/* ---------- Utilities ---------- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-xl); }
+
+/* Display typography - SpaceX style: uppercase, wide tracking, tight leading */
+.display-xxl {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+}
+
+/* Micro-cap eyebrow text */
+.micro-cap {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 2.0;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* Button-cap text */
+.button-cap {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+}
+
+/* ---------- Ghost Pill Button ---------- */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-xs);
+  padding: var(--sp-lg) var(--sp-xl);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+  color: var(--on-primary);
+  background: transparent;
+  border: 1px solid var(--on-primary);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: all var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.btn-ghost::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--on-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--ease);
+  z-index: 0;
+}
+.btn-ghost:hover::before {
+  transform: scaleX(1);
+}
+.btn-ghost:hover {
+  color: var(--canvas-night);
+}
+.btn-ghost span {
+  position: relative;
+  z-index: 1;
+}
+.btn-ghost .btn-arrow {
+  position: relative;
+  z-index: 1;
+  transition: transform var(--ease);
+}
+.btn-ghost:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-ghost-dark {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-ghost-dark::before {
+  background: var(--ink);
+}
+.btn-ghost-dark:hover {
+  color: var(--canvas-light);
+}
+
+.btn-full { width: 100%; justify-content: center; }
+
+/* ---------- Section Shared ---------- */
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 0;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 2.0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: block;
+  margin-bottom: var(--sp-md);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.section-line {
+  width: 60px;
+  height: 1px;
+  background: var(--hairline-dark);
+  margin: var(--sp-xl) auto 0;
+}
+
+/* Alternating section backgrounds */
+.section-alt {
+  background: var(--canvas-night-soft);
+}
+
+/* ---------- Scrollbar ---------- */
+::selection {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--canvas-night); }
+::-webkit-scrollbar-thumb {
+  background: var(--hairline-dark);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--hairline-hover); }
+
+/* ---------- Reveal Animations ---------- */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity .8s ease, transform .8s ease;
+  transition-delay: var(--delay, 0s);
+}
+.reveal-up { transform: translateY(40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-up.revealed,
+.reveal-left.revealed,
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translate(0);
+}

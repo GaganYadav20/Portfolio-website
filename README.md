@@ -1,16 +1,29 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Welcome to my portfolio! 🚀  
+This repository showcases my projects, skills, and learning journey in computer science and software development.
 
-Currently, two official plugins are available:
+## 👨‍💻 About Me
+- BTech Computer Science student  
+- Passionate about algorithms, cloud computing, quantum computing, and multimedia processing  
+- Skilled in Java, Python, , and web development (HTML/CSS/JavaScript)  
+- Exploring modern tools like Docker, Kubernetes, and LangChain  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📂 Projects
+- **Algorithm Analysis** – Implementations of classic problems with time complexity breakdowns  
+- **Web Development** – Responsive websites and modular front-end designs  
+- **Multimedia Processing** – Image, audio, and video workflows in Python and Java  
 
-## React Compiler
+## 🛠️ Tech Stack
+- **Languages:** Java, Python, JavaScript  
+- **Databases:** MySQL,  
+- **Cloud:** Google Cloud, Docker, Kubernetes  
+- **Other Tools:** Git
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📫 Contact
+Feel free to connect with me:  
+- Email: gaganyadav2094@gmail.com 
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+⭐ If you like my work, consider giving this repo a star!
